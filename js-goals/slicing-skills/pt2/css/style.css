@@ -14,9 +14,15 @@ html, body {
     margin: 8px 56px 8px 56px;
 }
 
-.flex {
+.display-flex {
     display: flex;
+}
+
+.justify-content-space-between {
     justify-content: space-between;
+}
+
+.align-items-center {
     align-items: center;
 }
 
@@ -83,10 +89,13 @@ section .text-container {
     background-color: #5f8d9a;
 }
 
-i.custom {
+.icon-item {
+    display: inline-block;
     padding: 8px;
     border: 2px solid;
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
 .icon-container {
@@ -100,7 +109,7 @@ i.custom {
     padding: 24px 96px 24px 96px;
 }
 
-.blue {
+.with-text-color {
     color: #5f8d9a;
 }
 
