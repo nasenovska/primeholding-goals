@@ -1,0 +1,25 @@
+.free-text-section {
+  position: relative;
+  height: 55%;
+}
+
+.section-image-holder {
+  position: absolute;
+  width: 100%;
+}
+
+.section-text-holder {
+  position: absolute;
+  left: 50%;
+  transform: translateY(50%);
+}
+
+.section-title {
+  @include highlight-description;
+  text-align: center;
+}
+
+.section-paragraph {
+  @include description;
+  text-align: left;
+}

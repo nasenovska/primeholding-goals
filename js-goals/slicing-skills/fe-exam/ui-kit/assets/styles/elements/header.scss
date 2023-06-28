@@ -1,0 +1,98 @@
+.logo-holder {
+  .logo {
+    display: block;
+    text-align: center;
+    @include logo();
+  }
+
+  .slogan {
+    display: block;
+    text-align: center;
+    @include sub-logo();
+  }
+}
+
+.nav-holder {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .nav-items {
+    list-style: none;
+
+    .nav-item {
+      @include add-background-box(map-get($navigation, 'hover'));
+
+      &:hover {
+        --p: 100%;
+        background-position: left;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      @include nav-items($text-transform-param: uppercase);
+    }
+  }
+}
+
+#header-arrow-icon {
+  color: white;
+  font-size: 20px;
+  vertical-align: bottom;
+}
+
+#navigation,
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navigation {
+  background-color: map-get($page, 'header');
+  border-bottom: 1px solid white;
+}
+
+li > ul {
+  display: none;
+}
+
+li:hover > ul {
+  display: block;
+}
+
+.nested-nav-items {
+  list-style: none;
+  position: absolute;
+  background: map-get($navigation, 'dropdown-box');
+  border-radius: 4px;
+  z-index: 1;
+
+  .nav-item {
+    a {
+      @include nav-items($text-transform-param: unset);
+    }
+  }
+}
+
+.active {
+  background: map-get($navigation, 'active') !important;
+  border-radius: 4px;
+}
+
+.nested-nav-items::before,
+.nested-nav-items::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 19px;
+  border: 11px solid transparent;
+  border-bottom-color: map-get($navigation, 'dropdown-box');;
+}
+
+.nested-nav-items::after {
+  left: 20px;
+  border: 10px solid transparent;
+  border-bottom-color: map-get($navigation, 'dropdown-box');;
+}

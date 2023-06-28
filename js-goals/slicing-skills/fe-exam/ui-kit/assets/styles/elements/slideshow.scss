@@ -1,0 +1,86 @@
+.slide {
+  display: none
+}
+
+.rectangles-holder {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 12px;
+  color: white;
+  font-size: 32px;
+  border-radius: 0 4px 4px 0;
+  background-color: map-get($buttons, 'hover-button-fill');
+  border-bottom: 4px solid map-get($buttons, 'hover-border');
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.slideshow-header {
+  text-align: start;
+  @include header-title
+}
+
+.slideshow-subheader {
+  text-align: start;
+  @include header-subtitle
+}
+
+.text {
+  color: map-get($text, 'slider-text-color');
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 60%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 4px;
+  left: 20%;
+}
+
+.rectangle {
+  cursor: pointer;
+  height: 5px;
+  width: 60px;
+  margin: 0 2px;
+  background-color: map-get($buttons, 'slider-rectangle-button');
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.selected, .rectangle:hover {
+  background-color: map-get($buttons, 'hover-border');
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}

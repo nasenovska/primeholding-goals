@@ -1,0 +1,44 @@
+.cards-wrapper {
+  width: 74%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-holder {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: map-get($card, 'card-background');
+  border-bottom: 4px solid map-get($card, 'card-border');
+  border-radius: 4px;
+  text-align: center;
+
+  .card-icon-holder i {
+    font-size: 45px;
+    color: map-get($card, 'text-color');
+  }
+
+  .card-text-holder {
+    h1, p {
+      color: map-get($card, 'text-color');
+    }
+  }
+
+  .card-button-holder button {
+    @include card-button;
+
+    width: 80%;
+    transform: translateY(45px);
+    border: none;
+    background-color: map-get($card, 'button-color');
+    border-bottom: 4px solid map-get($card, 'button-border');
+    border-radius: 4px;
+
+    &:hover {
+      background-color: map-get($buttons, 'hover-button-fill');
+      border-bottom: 4px solid map-get($buttons, 'hover-border');
+    }
+  }
+}

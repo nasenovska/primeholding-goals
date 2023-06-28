@@ -1,0 +1,99 @@
+.videos-form-wrapper {
+  background-color: map-get($info-block, 'block-background');
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.child {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.video-holder > .video-title, .form-holder > .form-title {
+  border-bottom: 2px solid map-get($info-block, 'title-border');
+}
+
+.video-title {
+  h1:before {
+    color: map-get($text, 'section-title');
+    content: 'PSDBird ';
+  }
+}
+
+.video-title {
+  h1 {
+    @include highlight-description;
+    color: map-get($text, 'section-subtitle');
+
+    &:before {
+      color: map-get($text, 'section-title');
+      content: 'PSDBird ';
+    }
+  }
+}
+
+.video-description > p {
+  @include description;
+}
+
+.form-title {
+  h1 {
+    @include highlight-description;
+    color: map-get($text, 'section-subtitle');
+
+    &:before {
+      color: map-get($text, 'section-title');
+      content: 'How ';
+    }
+  }
+}
+
+.video > video {
+  border: 6px solid white;
+}
+
+.form > form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form {
+  input {
+    height: 3vh;
+  }
+
+  input, textarea {
+    border-radius: 10px;
+    border: solid 1px map-get($form, 'border');
+    background-color: map-get($form, 'input-background');
+    color: map-get($form, 'text');
+  }
+
+  .firstName-input,
+  .lastName-input {
+    width: 43%;
+  }
+
+  .company-input,
+  .email-input,
+  .phoneNumber-input,
+  .content-input {
+    width: 100%;
+  }
+}
+
+.rounded-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: linear-gradient(to top, map-get($buttons, 'video-button-start'), map-get($buttons, 'video-button-end'));;
+  border-radius: 10px;
+  box-shadow: 0.5px 0.9px 2px 0 rgba(0, 0, 0, 0.75);
+
+  i {
+    border-left: 2px solid map-get($info-block, 'title-border');
+  }
+}
