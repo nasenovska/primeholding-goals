@@ -1,0 +1,7 @@
+{
+  "name": "fe-exam",
+  "version": "1.0.0",
+  "scripts": {
+    "compile-style": "sass --watch page/style.scss page/compiled.css"
+  }
+}

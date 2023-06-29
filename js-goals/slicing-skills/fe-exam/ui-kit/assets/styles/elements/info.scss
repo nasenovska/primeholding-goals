@@ -1,0 +1,28 @@
+.info-section-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  background-color: map-get($info-block, 'block-background');
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-title {
+  @include section-title;
+}
+
+.info-subtitle {
+  @include section-subtitle;
+}
+
+.view-more {
+  border: none;
+  width: 200px;
+  height: 60px;
+  background-color: map-get($buttons, 'hover-button-fill');
+  border-bottom: 4px solid map-get($buttons, 'hover-border');
+  border-radius: 4px;
+  @include section-button;
+}

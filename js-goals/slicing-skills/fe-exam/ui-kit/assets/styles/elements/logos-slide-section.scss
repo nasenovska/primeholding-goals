@@ -1,0 +1,60 @@
+.logos-slider-holder {
+  .logos-slider-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    hr {
+      flex-grow: 1;
+    }
+
+    .header-text {
+      @include logo-slider-title;
+      font-weight: bold;
+    }
+
+    .logos-slider-buttons {
+      .icon {
+        pointer-events: all;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        background-color: map-get($buttons, 'hover-button-fill');
+        border-bottom: 2px solid map-get($buttons, 'hover-border');
+        border-radius: 4px;
+      }
+
+      .not-active {
+        pointer-events: none;
+        background-color: map-get($buttons, 'rounded-rectangle');
+        border-bottom: 2px solid map-get($buttons, 'rounded-rectangle-border');
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .logos-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 120px;
+      filter: grayscale(1);
+
+      &:hover {
+        filter: none;
+      }
+    }
+
+    #logo-swipe-icon-left, #logo-swipe-icon-right {
+      cursor: pointer;
+      font-size: 100px;
+      color: map-get($buttons, 'rounded-rectangle');
+    }
+
+    #logo-swipe-icon-left.not-active, #logo-swipe-icon-right.not-active {
+      visibility: hidden;
+    }
+  }
+}

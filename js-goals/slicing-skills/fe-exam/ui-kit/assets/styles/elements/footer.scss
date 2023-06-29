@@ -1,0 +1,96 @@
+.footer-wrapper {
+  width: 100%;
+
+  .footer-info-holder {
+    background-color: map-get($footer, 'info-background');
+
+    .footer-info {
+      h1 {
+        @include header-title;
+      }
+
+      span {
+        @include header-subtitle;
+      }
+
+      .contact-info > .phone,
+      .contact-info > .email {
+        display: flex;
+        align-items: center;
+
+        .contact-highlight {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .footer-company, .footer-community {
+      .resource-link {
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          @include header-subtitle;
+        }
+
+        i {
+          color: white;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .footer-blog {
+      .blog-post {
+        .image-icon {
+          border-radius: 4px;
+          background-color: rgba(0, 0, 0, 0.5);
+
+          i {
+            font-size: 24px;
+            color: white;
+            opacity: 0.5;
+          }
+        }
+
+        .blog-text-info {
+          p {
+            @include header-subtitle;
+          }
+
+          span {
+            @include date-span;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: map-get($footer, 'footer-baclground');
+  }
+}
+
+.footer-title > h1 {
+  @include footer-title;
+  opacity: 0.5;
+}
+
+.blog-post {
+  display: flex;
+  align-items: center;
+}
+
+.social-networks-holder {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+
+  img {
+    width: 14px;
+    height: 30px;
+    object-fit: contain;
+  }
+}

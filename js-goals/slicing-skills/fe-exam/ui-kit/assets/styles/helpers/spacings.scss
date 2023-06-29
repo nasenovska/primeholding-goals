@@ -1,0 +1,97 @@
+$sizes: (
+        0: 0,
+        1: 0.25rem,
+        2: 0.50rem,
+        3: 0.75rem,
+        4: 1rem,
+        5: 1.25rem,
+        6: 1.50rem,
+        7: 2rem,
+        8: 6rem
+
+);
+
+@mixin spacings() {
+  @include generateMargins();
+  @include generatePaddings();
+  @include abscissa();
+  @include ordinate();
+}
+
+@mixin generateMargins() {
+  $margins: (
+          margin-top: mt,
+          margin-right: mr,
+          margin-bottom: mb,
+          margin-left: ml,
+          margin: m
+  );
+
+  @include generateSpacings($margins);
+}
+
+@mixin generatePaddings() {
+  $paddings: (
+          padding-top: pt,
+          padding-right: pr,
+          padding-bottom: pb,
+          padding-left: pl,
+          padding: p
+  );
+
+  @include generateSpacings($paddings);
+}
+
+@mixin generateSpacings($spacings) {
+  @each $property, $prefix in $spacings {
+    @each $size, $value in $sizes {
+      .#{$prefix}-#{$size} {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+@mixin abscissa() {
+  @each $size, $value in $sizes {
+    .mx-#{$size} {
+      margin-left: $value;
+      margin-right: $value;
+    }
+
+    .px-#{$size} {
+      padding-left: $value;
+      padding-right: $value;
+    }
+  }
+}
+
+@mixin ordinate() {
+  @each $size, $value in $sizes {
+    .my-#{$size} {
+      margin-top: $value;
+      margin-bottom: $value;
+    }
+
+    .py-#{$size} {
+      padding-top: $value;
+      padding-bottom: $value;
+    }
+  }
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
