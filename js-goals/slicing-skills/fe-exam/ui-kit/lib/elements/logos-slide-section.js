@@ -62,7 +62,7 @@ function buildLogosSliderHolder() {
         const i = document.createElement(tags.icon);
         i.setAttribute(attributes.id, id);
         i.setAttribute(attributes.class, className);
-        i.setAttribute(attributes.onclick, `switchLogoSlides(${direction})`);
+        i.setAttribute(attributes.onclick, `logos.switchToSlide(${direction})`);
         i.innerText = icon;
 
         return i;

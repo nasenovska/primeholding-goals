@@ -23,13 +23,13 @@ function buildSlideshowDiv() {
 
         const iconLeft = document.createElement(tags.icon);
         iconLeft.setAttribute(attributes.class, classes.slideshow.prevArrow);
-        iconLeft.setAttribute(attributes.onclick, `switchToSlide(${-1})`);
+        iconLeft.setAttribute(attributes.onclick, `slideshow.switchToSlide(${-1})`);
         iconLeft.innerText = icons.doubleArrowLeft;
         div.appendChild(iconLeft);
 
         const iconRight = document.createElement(tags.icon);
         iconRight.setAttribute(attributes.class, classes.slideshow.nextArrow);
-        iconRight.setAttribute(attributes.onclick, `switchToSlide(${1})`);
+        iconRight.setAttribute(attributes.onclick, `slideshow.switchToSlide(${1})`);
         iconRight.innerText = icons.doubleArrowRight;
         div.appendChild(iconRight);
 
@@ -49,7 +49,7 @@ function buildSlideshowDiv() {
         for (let i = 1; i <= 3; ++i) {
             const span = document.createElement(tags.span);
             span.setAttribute(attributes.class, classes.slideshow.rectangleDiv);
-            span.setAttribute(attributes.onclick, `forwardToSlide(${i})`)
+            span.setAttribute(attributes.onclick, `slideshow.forwardToSlide(${i})`)
 
             div.appendChild(span);
         }

@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <!-- Common constants -->
     <script src="../ui-kit/lib/constants/constants.js"></script>
 
+    <!-- Constants per element -->
     <script src="../ui-kit/lib/constants/header.constants.js"></script>
     <script src="../ui-kit/lib/constants/slideshow.constants.js"></script>
     <script src="../ui-kit/lib/constants/info.constants.js"></script>
@@ -19,6 +21,7 @@
     <script src="../ui-kit/lib/constants/logos-slide-section.constants.js"></script>
     <script src="../ui-kit/lib/constants/footer.constants.js"></script>
 
+    <!-- Elements -->
     <script src="../ui-kit/lib/elements/header.js"></script>
     <script src="../ui-kit/lib/elements/slideshow.js"></script>
     <script src="../ui-kit/lib/elements/info.js"></script>
@@ -29,16 +32,21 @@
     <script src="../ui-kit/lib/elements/logos-slide-section.js"></script>
     <script src="../ui-kit/lib/elements/footer.js"></script>
 
+    <!-- Header script -->
     <script src="../ui-kit/lib/scripts/header-script.js" defer></script>
-    <script src="../ui-kit/lib/scripts/slideshow-script.js" defer></script>
-    <script src="../ui-kit/lib/scripts/photo-slider-script.js" defer></script>
-    <script src="../ui-kit/lib/scripts/logos-slide-script.js" defer></script>
+
+    <!-- Scripts per element -->
+    <script src="../ui-kit/lib/scripts/abstract.slider.js" defer></script>
+    <script src="../ui-kit/lib/scripts/slideshow-slider-behavior.js" defer></script>
+    <script src="../ui-kit/lib/scripts/logo-slider-behavior.js" defer></script>
+    <script src="../ui-kit/lib/scripts/photo-slider-behavior.js" defer></script>
+
+    <!-- Script that is loading all the slider scripts -->
+    <script src="../ui-kit/lib/scripts/load-sliders.script.js" defer></script>
 
     <link href="compiled.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-
 <header-element></header-element>
 <slideshow-element></slideshow-element>
 <info-element></info-element>
@@ -48,6 +56,5 @@
 <videos-form-element></videos-form-element>
 <logos-slide-element></logos-slide-element>
 <footer-element></footer-element>
-
 </body>
 </html>
