@@ -43,17 +43,21 @@ function buildLogosSliderHolder() {
         span.setAttribute(attributes.class, classes.logosSlideSection.headerText);
         span.innerText = logosSliderInfo.title;
 
-        const hr = document.createElement(tags.horizontalLine);
-        hr.setAttribute(attributes.class, classes.logosSlideSection.horizontalLineMargin);
-
-        const arrowsDiv = document.createElement(tags.division);
-        arrowsDiv.setAttribute(attributes.class, classes.logosSlideSection.logosSliderButtons);
-        arrowsDiv.appendChild(buildIcon(ids.logosSlider.sliderLeftIcon, classes.logosSlideSection.sliderHeaderIcon, -1, icons.arrowLeft));
-        arrowsDiv.appendChild(buildIcon(ids.logosSlider.sliderRightIcon, classes.logosSlideSection.sliderHeaderIcon, 1, icons.arrowRight));
-
         div.appendChild(span);
-        div.appendChild(hr);
-        div.appendChild(arrowsDiv);
+
+        if (!isMobileView()) {
+            const hr = document.createElement(tags.horizontalLine);
+            hr.setAttribute(attributes.class, classes.logosSlideSection.horizontalLineMargin);
+
+            const arrowsDiv = document.createElement(tags.division);
+            arrowsDiv.setAttribute(attributes.class, classes.logosSlideSection.logosSliderButtons);
+            arrowsDiv.appendChild(buildIcon(ids.logosSlider.sliderLeftIcon, classes.logosSlideSection.sliderHeaderIcon, -1, icons.arrowLeft));
+            arrowsDiv.appendChild(buildIcon(ids.logosSlider.sliderRightIcon, classes.logosSlideSection.sliderHeaderIcon, 1, icons.arrowRight));
+
+
+            div.appendChild(hr);
+            div.appendChild(arrowsDiv);
+        }
 
         return div;
     }

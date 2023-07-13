@@ -6,7 +6,7 @@ class PhotoSliderBehavior extends AbstractSlider {
             [document.getElementById(selectors.selectRightArrowId)],
             tokens.notClickable,
             0,
-            2);
+            isMobileView() ? 0 : 2);
 
         super.loadSlides();
     }
