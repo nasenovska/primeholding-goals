@@ -67,12 +67,22 @@ const selectors = {
     selectAllLisUnderNavItems: '.nav-items>li',
     selectAllActiveLisUnderNavItems: '.nav-items>li.active',
     selectAllSlides: '.slide',
-    selectAllRectangles: '.rectangle'
+    selectAllRectangles: '.rectangle',
+    selectAllLogoSlides: '.logo-image-holder',
+    selectSliderIconLeftId: 'slider-icon-left',
+    selectLogoSwipeIconLeftId: 'logo-swipe-icon-left',
+    selectSliderIconRightId: 'slider-icon-right',
+    selectLogoSwipeIconRightId: 'logo-swipe-icon-right',
+    selectAllImageHolder: '.image-holder',
+    selectLeftArrowId: 'left-arrow',
+    selectRightArrowId: 'right-arrow'
 };
 
 const tokens = {
     active: 'active',
-    selected: 'selected'
+    selected: 'selected',
+    notActive: 'not-active',
+    notClickable: 'not-clickable'
 };
 
 const styles = {

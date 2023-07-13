@@ -28,7 +28,7 @@ function buildPhotoSliderWrapper() {
         const arrow = document.createElement(tags.icon);
         arrow.setAttribute(attributes.id, id);
         arrow.setAttribute(attributes.class, classes.photoSlider.arrowIcon);
-        arrow.setAttribute(attributes.onclick, `switchPhotoSlides(${direction})`);
+        arrow.setAttribute(attributes.onclick, `photos.switchToSlide(${direction})`);
         arrow.innerText = icon;
 
         div.appendChild(arrow);
