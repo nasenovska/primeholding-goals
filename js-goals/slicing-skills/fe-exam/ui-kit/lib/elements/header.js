@@ -14,7 +14,22 @@ function buildNav() {
     nav.setAttribute(attributes.class, classes.header.nav);
 
     nav.appendChild(buildDivLogoHolder());
-    nav.appendChild(buildNavHolder());
+    if (!isMobileView()) {
+        nav.appendChild(buildNavHolder());
+    } else {
+        nav.appendChild(buildNavIcon());
+    }
+
+    function buildNavIcon() {
+        const i = document.createElement(tags.icon);
+        i.setAttribute(attributes.class, classes.header.iconMaterial);
+        i.innerText = icons.menu;
+        i.style.color = 'white';
+        i.style.fontSize = '36px';
+        i.style.fontWeight = 'bold';
+
+        return i;
+    }
 
     function buildDivLogoHolder() {
         const div = document.createElement(tags.division);

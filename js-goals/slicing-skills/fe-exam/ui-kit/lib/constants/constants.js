@@ -60,7 +60,8 @@ const icons = {
     airplane: 'airplanemode_active',
     settings: 'settings_suggest',
     pinch: 'pinch',
-    domain: 'domain'
+    domain: 'domain',
+    menu: 'menu'
 };
 
 const selectors = {
