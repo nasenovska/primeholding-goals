@@ -1,0 +1,114 @@
+Visual Studio Code:
+- Prettier - Code formatter
+- Material Icon Theme
+- ESLint
+- One Monokai Theme
+- Quokka.js
+- Color Highlight
+- React Dev Tools
+
+create-react-app
+- used for tutorials or experiments
+
+npx creare-react-app@5 pizza-menu
+
+vite
+- used for moder real-world apps
+
+javascript review:
+
+- object destructuring:
+const { title, author } = book; - we give the variable names exactly the same name as the properties in the object
+
+- array destructuring:
+const [primaryGenre, secondaryGenre] = genres; - based on indexes, primaryGenre = array[0], secondaryGenre = array[1]
+
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres; - otherGenres will automatically create an array which contains all the values that we haven't previously destructured, we can place this only at the end of the destructuring operation
+
+- spread operator:
+...genres - take all the values out of the array and place them here one by one
+
+- conditions:
+short circuiting - logical operator that will immediatelly return the first value and not even look at the second value
+&& for example if the first param is false, it is not looking for the second param
+|| works in the opposite way
+
+coalescing operator - ?? - works like ||
+condition ?? condition
+
+- chaining operator:
+something?.something?.something - optional chaining - the chaning continues if the part is not null or undefined
+how to handle all undefined? - something?.something?.something || 0 - for example
+
+javascript map, filter, reduce, sort:
+map = when we are retuning object in map function to return object there are two ways:
+array.map((item) => {
+    return {
+        prop: val
+    }
+})
+and
+array.map((item) => ({
+    prop: val
+}))
+
+reduce - used to reduce the array in just one value, it accepts function as first parameter and starter value as second parameter
+it has an accumulator thar is basically the current value that we want to boil the array down to
+array.reduce((acc, item) => acc + item, 0);
+1st iteration acc will be 0,
+2nd iteration acc will be the result of acc + item and so on
+
+
+.slice() - returns new array from the original one
+
+Promises:
+pending, ejected, fulfilled
+then is called when the promise is fulfulled, as soon as the data has arrived
+
+the result of async function is always Promise
+
+
+REACT:
+index.js - entry point
+
+<React.StrictMode>
+- the components are rendered twice
+- it's strictly for development purposes
+- doesn't affect the production build
+- detecting side effects - when you wrap your application in <React.StrictMode>, React will double-invoke certain functions and methods. This helps detect side effects
+- highlighting unsafe lifecycles - some older lifecycle methods in class components are considered unsafe and deprecated
+- warning about legact string refs
+- warn about deprecated `contextType`
+- identifying unsafe updates inside `render`
+
+What is JSX?
+- declarative syntax that we use to describe what component look like and how they work based on their data and logical
+- allows to combine parts of HTML, CSS and JavaScrit as one block of code
+- behind the scenes, all the JSx that we write is converted into many nested React.createElement function calls (by Babel)
+
+imperative syntax - manually select elements, traverse the DOM, and attach event handlers to the elements
+declarative approach is simply to describe what the UI should look like at all times, always based on the current data that's in the components
+
+React.createElement("footer", null, "We're currently open!");
+"footer" - the element
+null - the props
+"We're currently open!" - the child elements
+
+if we want to pass something as a props differen from string we should enter JS mode
+
+falsy values:
+false, '', null, undefined
+
+<></> - React fragment
+- let us group some elements without leaving any trace in the HTML tree, so in the DOM
+
+<React.fragment key=""><React.fragment/> - React fragment with key
+
+React state:
+- data that component can hold over time, and we can use it for imformation taht a component needs to rememeber throughout its lifecycle. Therefore, we can think of a state as being the memory of a component
+- updating state triggers React to re-render the component, so whenever we update a piece of state in a component, this will make React re-render that component in the user interface
+- state allows developers to persist local variables between multiple renders and re-renders
+
+- all the React function that start with 'use' are React hooks
+
+- in React we don't do direct DOM manipulations
