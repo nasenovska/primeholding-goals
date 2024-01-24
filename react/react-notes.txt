@@ -18,30 +18,30 @@ vite
 javascript review:
 
 - object destructuring:
-const { title, author } = book; - we give the variable names exactly the same name as the properties in the object
+const { title, author } = book; - we give the variable names the same name as the properties in the object
 
 - array destructuring:
 const [primaryGenre, secondaryGenre] = genres; - based on indexes, primaryGenre = array[0], secondaryGenre = array[1]
 
-const [primaryGenre, secondaryGenre, ...otherGenres] = genres; - otherGenres will automatically create an array which contains all the values that we haven't previously destructured, we can place this only at the end of the destructuring operation
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres; - otherGenres will automatically create an array that contains all the values that we haven't previously destructured, we can place this only at the end of the destructuring operation
 
 - spread operator:
 ...genres - take all the values out of the array and place them here one by one
 
 - conditions:
-short circuiting - logical operator that will immediatelly return the first value and not even look at the second value
-&& for example if the first param is false, it is not looking for the second param
+short-circuiting - a logical operator that will immediately return the first value and not even look at the second value
+&& for example, if the first param is false, it is not looking for the second param
 || works in the opposite way
 
 coalescing operator - ?? - works like ||
 condition ?? condition
 
 - chaining operator:
-something?.something?.something - optional chaining - the chaning continues if the part is not null or undefined
+something?.something?.something - optional chaining - the changing continues if the part is not null or undefined
 how to handle all undefined? - something?.something?.something || 0 - for example
 
 javascript map, filter, reduce, sort:
-map = when we are retuning object in map function to return object there are two ways:
+map = when we are returning an object in the map function to return an object there are two ways:
 array.map((item) => {
     return {
         prop: val
@@ -52,20 +52,20 @@ array.map((item) => ({
     prop: val
 }))
 
-reduce - used to reduce the array in just one value, it accepts function as first parameter and starter value as second parameter
-it has an accumulator thar is basically the current value that we want to boil the array down to
+reduce - used to reduce the array in just one value, it accepts a function as a first parameter and starter value as a second parameter
+it has an accumulator that is basically the current value that we want to boil the array down to
 array.reduce((acc, item) => acc + item, 0);
 1st iteration acc will be 0,
 2nd iteration acc will be the result of acc + item and so on
 
 
-.slice() - returns new array from the original one
+.slice() - returns a new array from the original one
 
 Promises:
 pending, ejected, fulfilled
-then is called when the promise is fulfulled, as soon as the data has arrived
+then is called when the promise is fulfilled, as soon as the data has arrived
 
-the result of async function is always Promise
+the result of the async function is always a Promise
 
 
 REACT:
@@ -77,13 +77,13 @@ index.js - entry point
 - doesn't affect the production build
 - detecting side effects - when you wrap your application in <React.StrictMode>, React will double-invoke certain functions and methods. This helps detect side effects
 - highlighting unsafe lifecycles - some older lifecycle methods in class components are considered unsafe and deprecated
-- warning about legact string refs
+- warning about legacy string refs
 - warn about deprecated `contextType`
 - identifying unsafe updates inside `render`
 
 What is JSX?
 - declarative syntax that we use to describe what component look like and how they work based on their data and logical
-- allows to combine parts of HTML, CSS and JavaScrit as one block of code
+- allows to combine parts of HTML, CSS, and JavaScrit as one block of code
 - behind the scenes, all the JSx that we write is converted into many nested React.createElement function calls (by Babel)
 
 imperative syntax - manually select elements, traverse the DOM, and attach event handlers to the elements
@@ -94,7 +94,7 @@ React.createElement("footer", null, "We're currently open!");
 null - the props
 "We're currently open!" - the child elements
 
-if we want to pass something as a props differen from string we should enter JS mode
+if we want to pass something as a props different from string we should enter JS mode
 
 falsy values:
 false, '', null, undefined
@@ -105,10 +105,170 @@ false, '', null, undefined
 <React.fragment key=""><React.fragment/> - React fragment with key
 
 React state:
-- data that component can hold over time, and we can use it for imformation taht a component needs to rememeber throughout its lifecycle. Therefore, we can think of a state as being the memory of a component
+- data that a component can hold over time, and we can use it for information that a component needs to remember throughout its lifecycle. Therefore, we can think of a state as being the memory of a component
 - updating state triggers React to re-render the component, so whenever we update a piece of state in a component, this will make React re-render that component in the user interface
 - state allows developers to persist local variables between multiple renders and re-renders
 
-- all the React function that start with 'use' are React hooks
+- all the React functions that start with 'use' are React hooks
 
 - in React we don't do direct DOM manipulations
+
+derived state:
+- state that is computed from an existing piece of state or props
+for example cart (state) with numItems (regular variable) and totalPrice (regular variable)
+
+children prop:
+- put content in the tag, change it from self-closing
+- give the component access to whatever you wrote between the tag (with children prop)
+- the value of the children's prop is exactly what is between the opening and the closing tag of the component
+
+function Button({ textColor, bgColor, onClick, children }) { <-- children is a predefined keyword in React, the value of the children prop
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+}
+
+👉 the children prop allows us to pass JSX into an element (besides regular props)
+👉 essential tool to make reusable and configurable components (especially component content)
+👉 useful for generic components that don't know their content before being used (e.g. modal)
+
+prop drilling - when the component itself does not need a prop, it only passes it to the child
+
+
+👉 how to split components:
+1. logical separation of content/layout
+- does the component contain pieces of content or layout that don't belong together?
+2. reusability
+- is it possible to reuse part of the component?
+- do you want or need to reuse it?
+3. responsibilities/complexity
+- is the component doing too many different things?
+- does the component rely on too many props?
+- does the component have too many pieces of state and/or effects?
+- is the code, including JSX, too complex/confusing?
+4. personal coding style
+- do you prefer smaller functions/components?
+
+💡suggestion: when in doubt, start with a relatively big component, then split it into smaller components as becomes necessary
+
+👉 component categories
+- stateless/presentational components
+1. no state
+2. can receive props and simply present received data or other components
+3. usually small and reusable
+
+- stateful components
+1. have state
+2. can still be reusable
+
+- structural components
+1. "pages", "layouts", or "screens" of the app
+2. result of composition
+3. can be huge and non-reusable (but don't have to)
+
+👉 component composition
+- "using" component - using component in another component:
+function Success() {
+  return <p>Well done!</p>;
+}
+
+function Modal() {
+  return (
+    <div className="modal">
+      <Success /> <-- Success is inside Modal: we can NOT reuse Modal
+    </div>
+  );
+}
+
+- component composition - combining different components using the children prop (or explicitly defined props):
+function Success() {
+  return <p>Well done!</p>;
+}
+
+function Modal({ children }) {
+  return <div className="modal">{children}</div>; <-- we leave a hole or this empty slot in the component ready to be filled with any other component that we want
+}
+
+<Modal>
+  <Success />
+</Modal>;
+
+👉 prop types (type checking)
+
+import PropTypes from "prop-types";
+
+StarRating.propTypes = {
+  maxRating: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  className: PropTypes.string,
+  messages: PropTypes.arrayOf(PropTypes.string),
+  defaultRating: PropTypes.number,
+  onSetRating: PropTypes.func,
+};
+
+export default function StarRating({
+  maxRating = 5,
+  color = "#fcc419",
+  size = 48,
+  className,
+  messages = [],
+  defaultRating = 0,
+  onSetRating,
+}) {}
+
+PropTypes.number.isRequired = define number type and also that it will be required
+
+
+долно дряново
+
+
+👉 component vs. instance vs. element
+- component - description of a piece of UI, a function that returns React elements (element tree), usually written as JSX, "blueprint" or "template"
+- component instance - instances are created when we "use" components, React internally calls Component(), the actual "physical" manifestation of a component, has its own state and props, has its own lifecycle
+- React element - JSX is converted to React.createElement() function calls, a React element is a result of those function calls, information necessary to create DOM elements
+
+component --(<Tab />)-> Component instance --(Returns)-> React element --(Inserted to DOM)-> DOM element (HTML)
+
+👉 how React renders
+1) render is triggered - by updating the state somewhere
+2) render phase - React calls component functions and figures out how DOM should be updated
+- React rendering is NOT updating the DOM or displaying elements on the screen. Rendering only happens internally inside React, it does not produce visual changes.
+3) commit phase - React writes to the DOM, updating, inserting, and deleting elements
+4) browser paint - nothing to do with React, but applies the visual changes
+
+👉 how renders are triggered - two situations that trigger renders:
+1. initial render of the application
+2. state is updated in one or more component instances (re-render)
+
+
+👉 Renders are not triggered immediately, but scheduled for when the JS engine has some "free time". There is also batching of multiple setState calls in event handlers
+
+👉 the mechanics of state in React - the render phase
+1) component instances that trigger re-render
+2) React elements 
+3) New virtual DOM
+- virtual DOM - on the initial render, React will take the entire component tree and transform it into one big React element which will be a React element tree, and this is what we call the virtual DOM, a tree of all React elements created from all instances in a component tree
+- rendering a component will cause all of its child components to be rendered as well (no matter if props are changed)
+3) Reconciliation + Diffing - with so-called Fiber
+Current Fiber tree (before state update) -> Updated Fiber tree -> List of DOM updates
+
+👉 what is reconciliation and why do we need it:
+- deciding which DOM elements need to be inserted, deleted, or updated, to reflect the latest state changes
+- so the result of the reconciliation process is gonna be a list of DOM operations that are necessary to update the current DOM with a new state
+- the current reconciler in React is called Fiber
+- during the initial render of the application Fiber takes the entire React element tree, so the virtual DOM, and based on it builds yet another tree which is the Fiber tree. The Fiber tree is a special internal tree where for each component instance and DOM element in the app there is one so-called Fiber. Unlike the virtual DOM, Fibers are not recreated on every render. So the Fiber tree is never destroyed.
+- in Fibers is the place for keeping track of things like the current component state, props, side effects, list of hooks, and more
+- each Fiber also contains a queue of work to do like updating state, updating refs, running registered side effects, performing DOM updates, and so on
+
+⚡fiber tree is linked list - each first child has a link to its parent and all the other children then have a link to their previous sibling
+
+- Fiber reconciler can perform work asynchronously - the rendering process which is what reconciler does, can be split into chunks, some tasks can be prioritized over others, and work can be paused, reused, or thrown away if not valid anymore
+
+- as a result of reconciliation there is a list of effects that will be used in the next phase, so in the commit phase to actually mutate the DOM
+
